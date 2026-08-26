@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Limited</title>
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Navigation Bar */
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+      background-color: #007BFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      padding: 12px 25px;
+      margin: 5px 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* Buttons */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .controls button:hover {
+      background-color: #27ae60;
+    }
+
+    /* Sections */
+    section {
+      width: 100%;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      margin: 10px;
+    }
+
+    .home {
+      background-color: #3498db;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      background-color: #222;
+      color: white;
+    }
+
+    .dark-mode section {
+      background-color: #333;
+    }
+
+    .dark-mode nav {
+      background-color: #111;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="place.html">Place</a>
+    <a href="product.html">Products</a>
+  </nav>
+
+  <!-- Control Buttons -->
+  <div class="controls">
+    <button onclick="toggleLanguage()">🌍 English / Swahili</button>
+    <button onclick="toggleLight()">💡 Light ON / OFF</button>
+  </div>
+
+  <!-- Home Section -->
+  <section class="home">
+    <h1 id="welcomeText">
+      WELCOME TO RUKESH'S SWEET POTATOES AND TARO POINT SALES PRODUCT
+    </h1>
+    <p id="homeText">
+      Your trusted partner in our company. We provide products and services worldwide.
+    </p>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about-us">
+    <h2 id="aboutTitle">About Us</h2>
+    <p id="aboutText">
+      Rukesh's Sweet potatoes and Taro Point was founded in 2005.
+      Since then, we've been delivering our products to our customers worldwide.
+    </p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    let isEnglish = true;
+
+    function toggleLanguage() {
+      if (isEnglish) {
+        document.getElementById("welcomeText").innerText =
+          "KARIBU RUKESH SWEET POTATOES NA TARO POINT MAHALI PA MAUZO";
+        document.getElementById("homeText").innerText =
+          "Mshirika wako wa kuaminika katika kampuni yetu. Tunatoa bidhaa na huduma duniani kote.";
+        document.getElementById("aboutTitle").innerText = "Kuhusu Sisi";
+        document.getElementById("aboutText").innerText =
+          "Rukesh Sweet Potatoes na Taro Point ilianzishwa mwaka 2005. Tangu wakati huo, tumekuwa tukitoa bidhaa zetu kwa wateja wetu duniani kote.";
+      } else {
+        document.getElementById("welcomeText").innerText =
+          "WELCOME TO RUKESH'S SWEET POTATOES AND TARO POINT SALES PRODUCT";
+        document.getElementById("homeText").innerText =
+          "Your trusted partner in our company. We provide products and services worldwide.";
+        document.getElementById("aboutTitle").innerText = "About Us";
+        document.getElementById("aboutText").innerText =
+          "Rukesh's Sweet potatoes and Taro Point was founded in 2005. Since then, we've been delivering our products to our customers worldwide.";
+      }
+      isEnglish = !isEnglish;
+    }
+
+    function toggleLight() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Navigation Bar */
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #007BFF;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            padding: 12px 25px;
+            margin: 5px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Control Buttons */
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Container styling */
+        .container {
+            max-width: 700px;
+            background: white;
+            padding: 30px 40px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            line-height: 1.6;
+            transition: background 0.3s;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #007BFF;
+        }
+
+        i {
+            display: block;
+            margin: 30px 0 10px 0;
+            font-size: 1.1em;
+            color: #666;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #222;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background: #333;
+        }
+
+        .dark-mode i {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="place.html">Place</a>
+        <a href="product.html">Products</a>
+    </nav>
+
+    <!-- Control Buttons -->
+    <div class="controls">
+        <button onclick="toggleLanguage()">🌍 English / Swahili</button>
+        <button onclick="toggleLight()">💡 Light ON / OFF</button>
+    </div>
+
+    <div class="container" id="contentContainer">
+        <h1 id="mainTitle">Welcome To Our Group-Trader!</h1>
+        <p id="mainSubtitle"><b><i><u> RUKESH'S SWEET POTATOES AND TARO POINT</u></i></b></p>
+        <p id="para1">Are the sellers/vendors of Taro point, sweet potatoes and other tuber crops</p>
+        <p id="para2">Our product is more qualified that has good level of quantity,<br>
+            whereby we make free delivery of those goods to anyway inside and outside the country depending to customer's requirement
+        </p>
+        <p id="para3">About this TRADE, We have experience about fifteen(15) years<br>
+        also our Price is comfortable to the customer</p>
+        <p id="para4">We are available at <u>Mabibo Gamex Market</u> near by to the National Institute of Transportation (NIT)
+        to aside of MSD</p>
+        <p id="para5">We make sure good services to the customers for delivery of those goods</p>
+
+        <i id="translationLabel">Translation in Swahili</i>
+        <p id="swTitle"><b><i><u>RUKESH VIAZI VITAMU NA MAGIMBI</u></i></b></p>
+        <p id="swPara1">Ni waiuzaji wa magimbi, viazi vitamu, na mazao mengine yenye asili ya mizizi</p>
+        <p id="swPara2">Bidhaa zetu ni bora zaidi zenye kiwango cha hali ya juu,<br>
+            Ambapo tunafanya usafirishaji wa bidhaa hizo mahali popote kutokana na mahitaji ya mteja ndani na nje ya nchi
+        </p>
+        <p id="swPara3">Kuhusu Biashara hii tunauzoefu kwa muda wa miaka kumi(10)<br>
+        Pia Bei zetu ni nafuu sana</p>
+        <p id="swPara4">Tunapatikana soko la <b>Mabibo Gamex</b> karibu na chuo cha usafirishaji Taifa(NIT)<br>
+        Upande wa pili wa MSD</p> 
+        <p id="swPara5">Tunakuhakikishia huduma nzuri kwa mahitaji ya bidhaa hizi</p>
+        <p id="swPara6">Asante kwa kuwa sehemu ya safari yetu!</p>
+    </div>
+
+    <script>
+        let isEnglish = true;
+
+        function toggleLanguage() {
+            if (isEnglish) {
+                // Switch to Swahili
+                document.getElementById("mainTitle").innerText = "Karibu Kwa Kikundi Chetu!";
+                document.getElementById("mainSubtitle").innerHTML = "<b><i><u>RUKESH VIAZI VITAMU NA MAGIMBI</u></i></b>";
+                document.getElementById("para1").innerText = "Ni waiuzaji wa magimbi, viazi vitamu, na mazao mengine yenye asili ya mizizi";
+                document.getElementById("para2").innerText = "Bidhaa zetu ni bora zaidi zenye kiwango cha hali ya juu, ambapo tunafanya usafirishaji wa bidhaa hizo mahali popote ndani na nje ya nchi kulingana na mahitaji ya mteja";
+                document.getElementById("para3").innerText = "Kuhusu biashara hii tunauzoefu kwa muda wa miaka kumi(10). Pia Bei zetu ni nafuu sana";
+                document.getElementById("para4").innerText = "Tunapatikana soko la Mabibo Gamex karibu na chuo cha usafirishaji Taifa(NIT), upande wa pili wa MSD";
+                document.getElementById("para5").innerText = "Tunakuhakikishia huduma nzuri kwa mahitaji ya bidhaa hizi";
+            } else {
+                // Switch to English
+                document.getElementById("mainTitle").innerText = "Welcome To Our Group-Trader!";
+                document.getElementById("mainSubtitle").innerHTML = "<b><i><u>RUKESH'S SWEET POTATOES AND TARO POINT</u></i></b>";
+                document.getElementById("para1").innerText = "Are the sellers/vendors of Taro point, sweet potatoes and other tuber crops";
+                document.getElementById("para2").innerText = "Our product is more qualified that has good level of quantity, whereby we make free delivery of those goods to anyway inside and outside the country depending to customer's requirement";
+                document.getElementById("para3").innerText = "About this TRADE, We have experience about fifteen(15) years, also our Price is comfortable to the customer";
+                document.getElementById("para4").innerText = "We are available at Mabibo Gamex Market near by to the National Institute of Transportation (NIT) to aside of MSD";
+                document.getElementById("para5").innerText = "We make sure good services to the customers for delivery of those goods";
+            }
+            isEnglish = !isEnglish;
+        }
+
+        function toggleLight() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>

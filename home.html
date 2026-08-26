@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trader Home</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navigation Bar */
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+      background-color: #007BFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      padding: 12px 25px;
+      margin: 5px 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    nav a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* Control Buttons */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .controls button:hover {
+      background-color: #27ae60;
+    }
+
+    /* Container styling */
+    .home-container {
+      max-width: 700px;
+      background: white;
+      padding: 30px 40px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      line-height: 1.6;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    /* Headings */
+    .main-heading {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #007BFF;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      animation: fadeInDown 1s ease;
+    }
+
+    /* Trader image */
+    .trader-image {
+      width: 300px;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    .trader-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Trader name */
+    .trader-name {
+      font-weight: bold;
+      color: #444;
+      font-size: 1.8em;
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      background: #222;
+      color: white;
+    }
+
+    .dark-mode nav {
+      background-color: #111;
+    }
+
+    .dark-mode .home-container {
+      background: #333;
+    }
+
+    .dark-mode .trader-name {
+      color: #ddd;
+    }
+
+    /* Animation */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="place.html">Place</a>
+    <a href="product.html">Products</a>
+  </nav>
+
+  <!-- Control Buttons -->
+  <div class="controls">
+    <button onclick="toggleLanguage()">🌍 English / Swahili</button>
+    <button onclick="toggleLight()">💡 Light ON / OFF</button>
+  </div>
+
+  <!-- Main Heading -->
+  <h1 class="main-heading" id="mainHeading">
+    WELCOME TO OUR BUSINESS <br>
+    RUKESH'S SWEET POTATOES AND TARO POINT
+  </h1>
+
+  <!-- Content -->
+  <div class="home-container">
+    <img src="papa.jpg" alt="Trader Picture" class="trader-image" />
+    <h2 class="trader-name" id="traderName">RUKESH THE BUSINESS MAN</h2>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let isEnglish = true;
+
+    function toggleLanguage() {
+      if (isEnglish) {
+        document.getElementById("mainHeading").innerHTML =
+          "KARIBU KWENYE BIASHARA YETU <br> RUKESH SWEET POTATOES NA TARO POINT";
+        document.getElementById("traderName").innerText =
+          "RUKESH MFANYABIASHARA";
+      } else {
+        document.getElementById("mainHeading").innerHTML =
+          "WELCOME TO OUR BUSINESS <br> RUKESH'S SWEET POTATOES AND TARO POINT";
+        document.getElementById("traderName").innerText =
+          "RUKESH THE BUSINESS MAN";
+      }
+      isEnglish = !isEnglish;
+    }
+
+    function toggleLight() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>

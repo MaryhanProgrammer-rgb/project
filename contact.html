@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Page</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navigation Bar */
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      display: inline-block;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Control buttons */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Content */
+    .product {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .actions button {
+      padding: 10px 15px;
+      margin-right: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .comment {
+      background: #e7e7e7;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      background: #222;
+      color: white;
+    }
+
+    .dark-mode .product {
+      background: #333;
+    }
+
+    .dark-mode .comment {
+      background: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="home.html">🏠 Home</a>
+    <a href="about.html">ℹ️ About Us</a>
+    <a href="contact.html">📞 Contact Us</a>
+    <a href="place.html">📍 Place</a>
+    <a href="product.html">🛍️ Products</a>
+  </nav>
+
+  <!-- Buttons -->
+  <div class="controls">
+    <button onclick="toggleLanguage()">🌍 English / Swahili</button>
+    <button onclick="toggleLight()">💡 Light ON / OFF</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="product">
+    <img src="logo.jpg" alt="Contact Banner">
+
+    <h2 id="contactTitle">Contact Us</h2>
+    <p id="contactText">If you have any questions or feedback, feel free to reach out:</p>
+
+    <ul>
+      <li><strong id="emailLabel">Email:</strong> bonifacembughi2@gmail.com</li>
+      <li><strong id="phoneLabel">Phone:</strong> +255 752 022 667</li>
+      <li><strong id="addressLabel">Address:</strong> Mabibo Gamex, Dar Es Salaam City, Tanzania</li>
+    </ul>
+
+    <div class="actions">
+      <button onclick="subscribe()" id="subscribeBtn">🔔 Subscribe</button>
+      <button onclick="likeProduct()">❤️ Like (<span id="likeCount">0</span>)</button>
+    </div>
+
+    <div class="comment-section">
+      <h3 id="commentTitle">Leave a Comment</h3>
+
+      <form onsubmit="addComment(event)">
+        <input type="text" id="nameInput" placeholder="Your name" required><br><br>
+        <input type="text" id="commentInput" placeholder="Your comment" required>
+        <button type="submit" id="submitBtn">Submit</button>
+      </form>
+
+      <div class="comments">
+        <h4 id="commentsLabel">Comments (<span id="commentCount">0</span>)</h4>
+        <div id="commentList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    let isEnglish = true;
+    let likes = 0;
+    let totalComments = 0;
+
+    function toggleLanguage() {
+      if (isEnglish) {
+        document.getElementById("contactTitle").innerText = "Wasiliana Nasi";
+        document.getElementById("contactText").innerText =
+          "Ikiwa una maswali au maoni, tafadhali wasiliana nasi:";
+        document.getElementById("emailLabel").innerText = "Barua pepe:";
+        document.getElementById("phoneLabel").innerText = "Simu:";
+        document.getElementById("addressLabel").innerText = "Anwani:";
+        document.getElementById("subscribeBtn").innerText = "🔔 Jiunge";
+        document.getElementById("commentTitle").innerText = "Acha Maoni";
+        document.getElementById("submitBtn").innerText = "Tuma";
+        document.getElementById("commentsLabel").innerText =
+          "Maoni (" + totalComments + ")";
+      } else {
+        document.getElementById("contactTitle").innerText = "Contact Us";
+        document.getElementById("contactText").innerText =
+          "If you have any questions or feedback, feel free to reach out:";
+        document.getElementById("emailLabel").innerText = "Email:";
+        document.getElementById("phoneLabel").innerText = "Phone:";
+        document.getElementById("addressLabel").innerText = "Address:";
+        document.getElementById("subscribeBtn").innerText = "🔔 Subscribe";
+        document.getElementById("commentTitle").innerText = "Leave a Comment";
+        document.getElementById("submitBtn").innerText = "Submit";
+        document.getElementById("commentsLabel").innerText =
+          "Comments (" + totalComments + ")";
+      }
+      isEnglish = !isEnglish;
+    }
+
+    function toggleLight() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function subscribe() {
+      alert(isEnglish ? "Thank you for subscribing!" : "Asante kwa kujiunga!");
+    }
+
+    function likeProduct() {
+      likes++;
+      document.getElementById("likeCount").innerText = likes;
+    }
+
+    function addComment(event) {
+      event.preventDefault();
+      const name = document.getElementById("nameInput").value;
+      const comment = document.getElementById("commentInput").value;
+
+      if (!name || !comment) return;
+
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.innerHTML = `<strong>${name}</strong><br>${comment}`;
+      document.getElementById("commentList").appendChild(div);
+
+      totalComments++;
+      document.getElementById("commentCount").innerText = totalComments;
+
+      document.getElementById("nameInput").value = "";
+      document.getElementById("commentInput").value = "";
+    }
+  </script>
+
+</body>
+</html>

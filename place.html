@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Company Locations</title>
+  <style>
+    /* Global body style */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Navigation Bar */
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: #007BFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+    nav a {
+      display: inline-block;
+      color: white;
+      padding: 12px 25px;
+      margin: 5px 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    nav a:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* Control Buttons */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Header and Sections */
+    header, section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: #004080;
+      color: white;
+      text-align: center;
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    /* Map container styling */
+    .map-container {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin-top: 15px;
+    }
+
+    /* Locations list */
+    .locations ul {
+      list-style-type: none;
+      padding-left: 0;
+      font-size: 16px;
+      color: #444;
+    }
+    .locations li {
+      margin-bottom: 8px;
+      padding-left: 12px;
+      position: relative;
+    }
+    .locations li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1abc9c;
+      font-weight: bold;
+    }
+
+    /* Experience paragraph */
+    .experience p {
+      line-height: 1.6;
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Responsive for smaller screens */
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      header, section {
+        margin: 0 10px 30px 10px;
+      }
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #222;
+      color: white;
+    }
+
+    .dark-mode header, .dark-mode section {
+      background: #333;
+      color: #eee;
+    }
+
+    .dark-mode .locations li {
+      color: #ccc;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="place.html">Place</a>
+    <a href="product.html">Products</a>
+  </nav>
+
+  <!-- Control Buttons -->
+  <div class="controls">
+      <button onclick="toggleLanguage()">🌍 English / Swahili</button>
+      <button onclick="toggleLight()">💡 Light ON / OFF</button>
+  </div>
+
+  <header>
+    <h1 id="headerTitle">Rukesh's sweet potatoes and taro point</h1>
+    <p id="headerSubtitle">Your trusted partner in Rukesh's Company</p>
+  </header>
+
+  <section>
+    <h2 id="hqTitle">Our Headquarters</h2>
+    <div class="map-container">
+      <!-- Google Maps Embed -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1570767.4741333548!2d29.417690506639672!3d-6.165910243474515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c3e5f3be9f3d7%3A0xd12e84c3e47d9774!2sTanzania!5e0!3m2!1sen!2sus!4v1628657609064!5m2!1sen!2sus"
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <section class="locations">
+    <h2 id="distTitle">Product Distribution Areas</h2>
+    <ul>
+      <li id="loc1">Dar Es Salaam, Tanzania</li>
+      <li id="loc2">Comoro</li>
+      <li id="loc3">South Africa</li>
+      <li id="loc4">Zanzibar, Tanzania</li>
+    </ul>
+  </section>
+
+  <section class="experience">
+    <h2 id="expTitle">Our Work Experience</h2>
+    <p id="expPara">
+      Since our founding in 2010, Rukesh's group has been a servant on making sure that the other country got these products.
+    </p>
+  </section>
+
+  <script>
+    let isEnglish = true;
+
+    function toggleLanguage() {
+      if (isEnglish) {
+        // Switch to Swahili
+        document.getElementById("headerTitle").innerText = "Viazi vitamu na magimbi ya Rukesh";
+        document.getElementById("headerSubtitle").innerText = "Mshirika wako anayeaminika katika kampuni ya Rukesh";
+        document.getElementById("hqTitle").innerText = "Makao Makuu Yetu";
+        document.getElementById("distTitle").innerText = "Maeneo ya Usambazaji Bidhaa";
+        document.getElementById("loc1").innerText = "Dar Es Salaam, Tanzania";
+        document.getElementById("loc2").innerText = "Komoro";
+        document.getElementById("loc3").innerText = "Afrika Kusini";
+        document.getElementById("loc4").innerText = "Zanzibar, Tanzania";
+        document.getElementById("expTitle").innerText = "Uzoefu Wetu wa Kazi";
+        document.getElementById("expPara").innerText = "Tangu kuanzishwa kwa kampuni yetu mwaka 2010, kundi la Rukesh limehakikisha bidhaa hizi zinapatikana kwa nchi nyingine.";
+      } else {
+        // Switch back to English
+        document.getElementById("headerTitle").innerText = "Rukesh's sweet potatoes and taro point";
+        document.getElementById("headerSubtitle").innerText = "Your trusted partner in Rukesh's Company";
+        document.getElementById("hqTitle").innerText = "Our Headquarters";
+        document.getElementById("distTitle").innerText = "Product Distribution Areas";
+        document.getElementById("loc1").innerText = "Dar Es Salaam, Tanzania";
+        document.getElementById("loc2").innerText = "Comoro";
+        document.getElementById("loc3").innerText = "South Africa";
+        document.getElementById("loc4").innerText = "Zanzibar, Tanzania";
+        document.getElementById("expTitle").innerText = "Our Work Experience";
+        document.getElementById("expPara").innerText = "Since our founding in 2010, Rukesh's group has been a servant on making sure that the other country got these products.";
+      }
+      isEnglish = !isEnglish;
+    }
+
+    function toggleLight() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+
+</body>
+</html>
